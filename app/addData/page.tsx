@@ -2,9 +2,10 @@
 
 import { addDoc, collection, deleteDoc, doc, getDocs, updateDoc } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
-import { db } from "../firebase/firebaseConfig";
+import { auth, db } from "../firebase/firebaseConfig";
 import { useAuth } from "../components/context/AuthContext";
 import { useRouter } from "next/navigation";
+import { signOut } from "firebase/auth";
 
 interface datatype {
   id: string;
@@ -107,8 +108,19 @@ setUpdatedName(user.name)
           >
             Add Data
           </button>
+          <div>
+          
+          </div>
         </form>
-
+        <button
+            className="bg-blue-500 text-white p-2 rounded w-full"
+            onClick={() => {
+              signOut(auth);
+              router.push("/");
+            }}
+          >
+            Logout
+          </button>
         <div className="mt-8">
           <h2 className="text-2xl font-semibold mb-4 text-gray-800">Users List</h2>
           <ul className="space-y-4">
