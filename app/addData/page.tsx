@@ -119,7 +119,7 @@ setUpdatedName(user.name)
               router.push("/");
             }}
           >
-            Logout
+            LogOut
           </button>
         <div className="mt-8">
           <h2 className="text-2xl font-semibold mb-4 text-gray-800">Users List</h2>
